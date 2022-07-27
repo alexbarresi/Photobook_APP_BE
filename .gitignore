@@ -1,0 +1,11 @@
+obj/BeatData-test-App_BE.csproj.nuget.dgspec.json
+obj/project.assets.json
+obj/project.nuget.cache
+obj/staticwebassets.pack.sentinel
+obj/Debug/net6.0/BeatData-test-App_BE.AssemblyInfo.cs
+obj/Debug/net6.0/BeatData-test-App_BE.assets.cache
+obj/Debug/net6.0/BeatData-test-App_BE.csproj.FileListAbsolute.txt
+obj/Debug/net6.0/BeatData-test-App_BE.GeneratedMSBuildEditorConfig.editorconfig
+obj/Debug/net6.0/project.razor.json
+obj/Debug/net6.0/staticwebassets.build.json
+bin/Debug/net6.0/BeatData-test-App_BE.deps.json

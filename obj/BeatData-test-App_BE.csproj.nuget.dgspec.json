@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "/Users/alessiobarresi/Photobook_App_BE/BeatData-test-App_BE.csproj": {}
+    "/Users/alessiobarresi/Photobook_App_BE/Photobook-test-App_BE.csproj": {}
   },
   "projects": {
-    "/Users/alessiobarresi/Photobook_App_BE/BeatData-test-App_BE.csproj": {
+    "/Users/alessiobarresi/Photobook_App_BE/Photobook-test-App_BE.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/alessiobarresi/Photobook_App_BE/BeatData-test-App_BE.csproj",
-        "projectName": "BeatData-test-App_BE",
-        "projectPath": "/Users/alessiobarresi/Photobook_App_BE/BeatData-test-App_BE.csproj",
+        "projectUniqueName": "/Users/alessiobarresi/Photobook_App_BE/Photobook-test-App_BE.csproj",
+        "projectName": "Photobook-test-App_BE",
+        "projectPath": "/Users/alessiobarresi/Photobook_App_BE/Photobook-test-App_BE.csproj",
         "packagesPath": "/Users/alessiobarresi/.nuget/packages/",
         "outputPath": "/Users/alessiobarresi/Photobook_App_BE/obj/",
         "projectStyle": "PackageReference",

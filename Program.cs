@@ -13,7 +13,7 @@ builder.Services.AddSwaggerGen(options =>
     options.SwaggerDoc("v1", new OpenApiInfo
     {
         Version = "v1",
-        Title = "BeatData test API service",
+        Title = "Photobook test API service",
         Description = "A test API service to retrieve albums and photos placeholders to get consumed by the FE" 
     });
 });

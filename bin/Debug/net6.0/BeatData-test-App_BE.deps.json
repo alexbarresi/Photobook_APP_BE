@@ -6,12 +6,12 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "BeatData-test-App_BE/1.0.0": {
+      "Photobook-test-App_BE/1.0.0": {
         "dependencies": {
           "Swashbuckle.AspNetCore": "6.2.3"
         },
         "runtime": {
-          "BeatData-test-App_BE.dll": {}
+          "Photobook-test-App_BE.dll": {}
         }
       },
       "Microsoft.Extensions.ApiDescription.Server/3.0.0": {},
@@ -64,7 +64,7 @@
     }
   },
   "libraries": {
-    "BeatData-test-App_BE/1.0.0": {
+    "Photobook-test-App_BE/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

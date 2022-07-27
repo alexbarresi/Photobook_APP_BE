@@ -1,8 +1,8 @@
 {
   "Version": 1,
   "Hash": "BnuK8VS/TMZlvL0nHi9GslPBaWWkH3qQtBSBg8zjelc=",
-  "Source": "BeatData-test-App_BE",
-  "BasePath": "_content/BeatData-test-App_BE",
+  "Source": "Photobook-test-App_BE",
+  "BasePath": "_content/Photobook-test-App_BE",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
