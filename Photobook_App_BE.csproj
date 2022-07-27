@@ -4,7 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>disable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <RootNamespace>Photobook_App_BE</RootNamespace>
+    <RootNamespace>Photobook_APP_BE</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
