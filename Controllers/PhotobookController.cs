@@ -3,38 +3,38 @@ using Microsoft.AspNetCore.Mvc;
 namespace Photobook_App_BE.Controllers;
 
 [ApiController]
-[Route("AlbumPhoto")]
+[Route("Photobook")]
 [Produces("application/json")]
-public class AlbumPhotoController : ControllerBase
+public class PhotobookController : ControllerBase
 {
-    private readonly ILogger<AlbumPhotoController> _logger;
-    private readonly IAlbumPhotoService _imageService;
-    public AlbumPhotoController(ILogger<AlbumPhotoController> logger, IAlbumPhotoService imageService)
+    private readonly ILogger<PhotobookController> _logger;
+    private readonly IPhotobookService _imageService;
+    public PhotobookController(ILogger<PhotobookController> logger, IPhotobookService imageService)
     {
         _logger = logger;
         _imageService = imageService;
     }
 
-    [HttpGet("GetAlbumPhotosByUserId")]
-    public ActionResult<List<Album>> GetAlbumPhotosByUserId(int userId)
+    [HttpGet("GetPhotobooksByUserId")]
+    public ActionResult<List<Album>> GetPhotobooksByUserId(int userId)
     {
-        _logger.LogTrace("GetAlbumPhotosByUserId start");
+        _logger.LogTrace("GetPhotobooksByUserId start");
 
         if (_imageService == null)
             return NotFound();
 
-        return _imageService.RetrieveAlbumPhotosList(userId);
+        return _imageService.RetrievePhotobooksList(userId);
     }
 
-    [HttpGet("GetAlbumPhotos")]
-    public ActionResult<List<Album>> GetAlbumPhotos()
+    [HttpGet("GetPhotobooks")]
+    public ActionResult<List<Album>> GetPhotobooks()
     {
-        _logger.LogTrace("GetAlbumPhotos start");
+        _logger.LogTrace("GetPhotobooks start");
 
         if (_imageService == null)
             return NotFound();
 
-        return _imageService.RetrieveAlbumPhotosList();
+        return _imageService.RetrievePhotobooksList();
     }
 
     // [HttpGet("GetPhotos")]

@@ -1,24 +1,24 @@
 using Photobook_App_BE;
 
-public interface IAlbumPhotoService
+public interface IPhotobookService
 {
-    public List<Album> RetrieveAlbumPhotosList(int userId = 0);
+    public List<Album> RetrievePhotobooksList(int userId = 0);
 }
 
-public class AlbumPhotoService : IAlbumPhotoService
+public class PhotobookService : IPhotobookService
 {
     private readonly Uri baseUrl = new Uri("https://jsonplaceholder.typicode.com");
     private static readonly HttpClient _client = new();
     private List<Album> _albums;
     private List<Photo> _photos;
 
-    public AlbumPhotoService()
+    public PhotobookService()
     {
         _albums = new();
         _photos = new();
     }
 
-    public List<Album> RetrieveAlbumPhotosList(int userId = 0)
+    public List<Album> RetrievePhotobooksList(int userId = 0)
     {
         List<Album> AlbumList = GetAlbums(userId);
         
@@ -38,7 +38,7 @@ public class AlbumPhotoService : IAlbumPhotoService
         return AlbumList;
     }
 
-    private List<Photo> GetPhotos(List<int> albumIds)
+    public List<Photo> GetPhotos(List<int> albumIds = null)
     {
         Uri url = AddAlbumIdsToUrl(new Uri(baseUrl, "/photos"), albumIds);
 
@@ -48,7 +48,7 @@ public class AlbumPhotoService : IAlbumPhotoService
         return _photos;
     }
 
-    private List<Album> GetAlbums(int userId = 0)
+    public List<Album> GetAlbums(int userId = 0)
     {
         Uri url = AddUserIdToUrl(new Uri(baseUrl, "/albums"), userId);
 
@@ -66,7 +66,7 @@ public class AlbumPhotoService : IAlbumPhotoService
 
     private static Uri AddAlbumIdsToUrl(Uri url, List<int> albumIds)
     {
-        if (albumIds == null && albumIds.Count() == 0)
+        if (albumIds == null || albumIds?.Count() == 0)
             return url;
 
         string queryWithIds = null;
