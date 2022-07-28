@@ -1,7 +1,9 @@
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Photobook_App_BE.Controllers;
 
+[EnableCors]
 [ApiController]
 [Route("Photobook")]
 [Produces("application/json")]
