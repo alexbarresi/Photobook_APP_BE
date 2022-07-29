@@ -1,13 +1,8 @@
 using Photobook_App_BE;
 
-public interface IPhotobookService
-{
-    public List<Album> RetrievePhotobooksList(int userId = 0);
-}
-
 public class PhotobookService : IPhotobookService
 {
-    private readonly Uri baseUrl = new Uri("https://jsonplaceholder.typicode.com");
+    private readonly Uri _baseUrl = new Uri("https://jsonplaceholder.typicode.com");
     private static readonly HttpClient _client = new();
     private List<Album> _albums;
     private List<Photo> _photos;
@@ -28,9 +23,10 @@ public class PhotobookService : IPhotobookService
         //for each album, here I add the associated list of photos
         foreach (Album album in AlbumList)
         {
-            var filteredList = from item in PhotoList
-                               where item.AlbumId == album.Id
-                               select item;
+            List<Photo> filteredList = PhotoList
+            .Select(c => c)
+            .Where(c => c.Id == album.Id)
+            .ToList();
 
             album.PhotoList = filteredList.ToList();
         }
@@ -40,7 +36,7 @@ public class PhotobookService : IPhotobookService
 
     public List<Photo> GetPhotos(List<int> albumIds = null)
     {
-        Uri url = AddAlbumIdsToUrl(new Uri(baseUrl, "/photos"), albumIds);
+        Uri url = AddAlbumIdsToUrl(new Uri(_baseUrl, "/photos"), albumIds);
 
         HttpResponseMessage res = Get(url);
         _photos = res.Content.ReadFromJsonAsync<List<Photo>>().Result;
@@ -50,7 +46,7 @@ public class PhotobookService : IPhotobookService
 
     public List<Album> GetAlbums(int userId = 0)
     {
-        Uri url = AddUserIdToUrl(new Uri(baseUrl, "/albums"), userId);
+        Uri url = AddUserIdToUrl(new Uri(_baseUrl, "/albums"), userId);
 
         HttpResponseMessage res = Get(url);
         _albums = res.Content.ReadFromJsonAsync<List<Album>>().Result;
