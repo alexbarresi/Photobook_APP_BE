@@ -25,7 +25,7 @@ public class PhotobookService : IPhotobookService
         {
             List<Photo> filteredList = PhotoList
             .Select(c => c)
-            .Where(c => c.Id == album.Id)
+            .Where(c => c.AlbumId == album.Id)
             .ToList();
 
             album.PhotoList = filteredList.ToList();
@@ -67,6 +67,8 @@ public class PhotobookService : IPhotobookService
 
         string queryWithIds = null;
 
+        // Here, we loop through the Album ids to build the query string with all the needed ids
+        // So in this way we're preventing multiple calls thanks to query string power
         foreach (int id in albumIds)
         {
             if (string.IsNullOrWhiteSpace(queryWithIds))

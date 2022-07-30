@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Photobook_App_BE.Controllers;
@@ -26,33 +25,4 @@ public class PhotobookController : ControllerBase
     {
         return _photobookService.RetrievePhotobooksList();
     }
-
-    // [HttpGet("GetPhotos")]
-    // public ActionResult<IEnumerable<Photo>> GetPhotos()
-    // {
-    //     _logger.LogTrace("GetPhotos start");
-
-    //     if (_photobookService == null)
-    //         return NotFound();
-
-    //     List<Photo> PhotoList = _photobookService.GetPhotos(null);
-
-    //     _logger.LogTrace("GetPhotos end");
-    //     return PhotoList;
-    // }
-
-    // [HttpGet("GetAlbums")]
-    // public ActionResult<IEnumerable<Album>> getAlbums()
-    // {
-    //     _logger.LogTrace("GetAlbums start");
-
-    //     if (_photobookService == null)
-    //         return NotFound();
-
-    //     List<Album> AlbumList = _photobookService.GetAlbums();
-
-
-    //     _logger.LogTrace("GetAlbums end");
-    //     return AlbumList;
-    // }
 }
