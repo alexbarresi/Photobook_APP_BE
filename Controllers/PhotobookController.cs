@@ -9,20 +9,21 @@ public class PhotobookController : ControllerBase
 {
     private readonly IPhotobookService _photobookService;
 
-    public PhotobookController(IPhotobookService imageService)
+    public PhotobookController(IPhotobookService photobookService)
     {
-        _photobookService = imageService;
-    }
-
-    [HttpGet("{userId}")]
-    public ActionResult<List<Album>> Get(int userId)
-    {
-        return _photobookService.RetrievePhotobooksList(userId);
+        _photobookService = photobookService;
     }
 
     [HttpGet]
     public ActionResult<List<Album>> Get()
     {
-        return _photobookService.RetrievePhotobooksList();
+        return _photobookService.RetrievePhotobookList();
     }
+
+    [HttpGet("{userId}")]
+    public ActionResult<List<Album>> Get(int userId)
+    {
+        return _photobookService.RetrievePhotobookList(userId);
+    }
+
 }
