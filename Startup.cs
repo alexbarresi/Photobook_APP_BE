@@ -1,6 +1,5 @@
 using Microsoft.OpenApi.Models;
 
-//var  MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 var builder = WebApplication.CreateBuilder(args);
 
