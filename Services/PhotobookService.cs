@@ -1,31 +1,37 @@
 using Photobook_App_BE;
 
-public class PhotobookService : PhotobookThirdPartyService, IPhotobookService
+public class PhotobookService : IPhotobookService
 {
-    public List<Album> RetrievePhotobookList(int userId = 0)
-    {
-        List<Album> AlbumList = GetAlbums(userId);
+    private readonly IPhotobookThirdPartyService _photobookThirdPartyService;
 
-        return RetrieveAndFilterAlbumPhotoList(AlbumList);
+    public PhotobookService(IPhotobookThirdPartyService photobookThirdPartyService)
+    {
+        _photobookThirdPartyService = photobookThirdPartyService;
     }
 
-    public List<Album> RetrievePhotobookList()
+    public async Task<List<Album>> RetrievePhotobookList(int userId = 0)
     {
-        List<Album> AlbumList = GetAlbums();
+        List<Album> AlbumList = await _photobookThirdPartyService.GetAlbums(userId);
 
-        return RetrieveAndFilterAlbumPhotoList(AlbumList);
+        return await RetrieveAndFilterAlbumPhotoList(AlbumList);
     }
 
-    private List<Album> RetrieveAndFilterAlbumPhotoList(List<Album> AlbumList)
+    public async Task<List<Album>> RetrievePhotobookList()
+    {
+        List<Album> AlbumList = await _photobookThirdPartyService.GetAlbums();
+
+        return await RetrieveAndFilterAlbumPhotoList(AlbumList);
+    }
+
+    private async Task<List<Album>> RetrieveAndFilterAlbumPhotoList(List<Album> AlbumList)
     {
         List<int> AlbumIds = AlbumList.Select(c => c.Id).ToList();
-        List<Photo> PhotoList = GetPhotos(AlbumIds);
+        List<Photo> PhotoList = await _photobookThirdPartyService.GetPhotos(AlbumIds);
 
         //for each album, here we filter and add the associated list of photos
         foreach (Album album in AlbumList)
         {
             List<Photo> filteredList = PhotoList
-            .Select(c => c)
             .Where(c => c.AlbumId == album.Id)
             .ToList();
 

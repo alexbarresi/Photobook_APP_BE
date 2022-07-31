@@ -15,21 +15,19 @@ public class PhotobookController : ControllerBase
     }
 
     [HttpGet]
-    public ActionResult<List<Album>> Get()
+    public async Task<ActionResult<List<Album>>> Get()
     {
-        List<Album> AlbumList = _photobookService.RetrievePhotobookList();
+        List<Album> AlbumList = await _photobookService.RetrievePhotobookList();
 
-        return AlbumList != null && AlbumList.Count() != 0 ?
-            Ok(AlbumList) :
-            NotFound("Album list not found");
+        return Ok(AlbumList);
     }
 
     [HttpGet("{userId}")]
-    public ActionResult<List<Album>> Get(int userId)
+    public async Task<ActionResult<List<Album>>> Get(int userId)
     {
-        List<Album> AlbumList = _photobookService.RetrievePhotobookList(userId);
+        List<Album> AlbumList = await _photobookService.RetrievePhotobookList(userId);
 
-        return AlbumList != null && AlbumList.Count() != 0 ?
+        return AlbumList.Any() ?
             Ok(AlbumList) :
             NotFound("User ID or Album list not found");
     }
