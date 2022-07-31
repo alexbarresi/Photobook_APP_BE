@@ -1,9 +1,9 @@
-# Photobook_App_BE
+# Photobook_APP_BE
 
 
-Tecnologia utilizzata:
-C# con .NET/Core MVC
+Technologic stack:
+C# with .NET Core MVC
 
-Versione framework: 6.0(lts)
+Framework version: 6.0(lts)
 
-Lista Endpoint presenti:
+Swagger enabled - You can access it by adding '/swagger' to then api endpoint.
