@@ -22,8 +22,6 @@ jobs:
         dotnet-version: ${{ matrix.dotnet-version }}
     - name: Display dotnet version
       run: dotnet --version
-    - name: Install dependencies
-      run: dotnet add package Swashbuckle.AspNetCore --version 6.2.3, Microsoft.AspNetCore.Cors --version 2.2.0
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
