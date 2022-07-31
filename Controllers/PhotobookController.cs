@@ -17,13 +17,21 @@ public class PhotobookController : ControllerBase
     [HttpGet]
     public ActionResult<List<Album>> Get()
     {
-        return _photobookService.RetrievePhotobookList();
+        List<Album> AlbumList = _photobookService.RetrievePhotobookList();
+
+        return AlbumList != null && AlbumList.Count() != 0 ?
+            Ok(AlbumList) :
+            NotFound("Album list not found");
     }
 
     [HttpGet("{userId}")]
     public ActionResult<List<Album>> Get(int userId)
     {
-        return _photobookService.RetrievePhotobookList(userId);
+        List<Album> AlbumList = _photobookService.RetrievePhotobookList(userId);
+
+        return AlbumList != null && AlbumList.Count() != 0 ?
+            Ok(AlbumList) :
+            NotFound("User ID or Album list not found");
     }
 
 }
