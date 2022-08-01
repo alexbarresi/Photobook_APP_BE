@@ -67,11 +67,15 @@ execute the command 'git clone https://github.com/alexbarresi/Photobook_APP_BE.g
 
 Now the project scaffold should appear to the left side of VScode. We successfully cloned the repository.
 
-## 2 - Build 
+
+## Available Scripts
+
+
+### `dotnet build` 
 
 On the VS Code terminal, run the command **'dotnet build'** to ensure the project builds successfully
 
-## 3 - Serve 
+### `dotnet run` 
 
 in this repo we can find the **launch.json** config file, this config file should be enough to configure the 'Run & Debug' VS code tab 
 
@@ -80,6 +84,8 @@ in this repo we can find the **launch.json** config file, this config file shoul
 As shown in the photo, you can press the run button to serve and run on localhost.
 
 After that, a localhost page will open in the browser.
+
+(You can also run the command **'dotnet build'** on the terminal to start a localhost instance.)
 
 You should now see an empty page like this one:
 
